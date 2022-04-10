@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Website with Customize Color Theme</title>
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<style>
+/* Google fonts import link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+  transition: all 0.3s ease;
+}
+:root{
+  --white: #fff;
+  --black: #24292d;
+  --nav-main: #4070f4;
+  --switchers-main: #0b3cc1;
+  --light-bg: #F0F8FF;
+}
+body
+{
+    background:var(--light-bg) ;
+}
+
+
+ .appearance .color-icon{
+   position: relative;
+ }
+ .appearance .icons{
+   width: 70px;
+   height: 50px;
+   margin-left: 14px;
+ }
+ .appearance .color-box{
+   position: absolute;
+   bottom: -133px;
+   right: 0;
+   min-height: 100px;
+   background: var(--white);
+   padding: 16px 20px 20px 20px;
+   border-radius: 6px;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+   opacity: 0;
+   pointer-events: none;
+ }
+ .color-box::before{
+   content: '';
+   position: absolute;
+   top: -10px;
+   right: 20px;
+   height: 30px;
+   width: 30px;
+   border-radius: 50%;
+   background: var(--white);
+   transform: rotate(45deg);
+ }
+ .color-icon.open .color-box{
+   opacity: 1;
+   pointer-events: auto;
+ }
+  .color-icon.open .arrow{
+    transform: rotate(-180deg);
+  }
+ .appearance .color-box h3{
+   font-size: 16px;
+   font-weight: 600;
+   display: block;
+   color: var(--nav-main);
+   text-align: left;
+   white-space: nowrap;
+   margin-bottom: 10px;
+ }
+.appearance .color-box .color-switchers{
+   display: flex;
+}
+.color-box .color-switchers .btn{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  background: #4070F4;
+
+}
+.color-switchers .btn.blue.active{
+  box-shadow: 0 0 0 2px #fff,
+              0 0 0 4px #4070F4;
+}
+.color-switchers .btn.orange{
+  background: #F79F1F;
+}
+.color-switchers .btn.orange.active{
+  box-shadow: 0 0 0 2px #fff,
+              0 0 0 4px #F79F1F;
+}
+.color-switchers .btn.purple{
+  background: #8e44ad;
+}
+.color-switchers .btn.purple.active{
+  box-shadow: 0 0 0 2px #fff,
+              0 0 0 4px #8e44Ad;
+}
+.color-switchers .btn.green{
+  background: #00ff1a;
+}
+.color-switchers .btn.green.active{
+  box-shadow: 0 0 0 2px #fff,
+              0 0 0 4px #00ff1a;
+}
+
+
+   
+</style>   
+<body>
+    <div class="appearance">   
+        <div class="color-icon">
+          <div class="icons">
+            <i class="fas fa-palette"></i>
+            <i class="fas fa-sort-down arrow"></i>
+          </div>
+         
+        </div>
+    </div>
+    <div class="color-box">
+        <h3>Color Switcher</h3>
+        <div class="color-switchers">
+          <button class="btn blue active" data-color="#fff #24292d #4070f4 #0b3cc1 #F0F8FF"></button>
+          <button class="btn orange" data-color="#fff #242526 #F79F1F #DD8808 #fef5e6"></button>
+          <button class="btn purple" data-color="#fff #242526 #8e44ad #783993 #eadaf1"></button>
+          <button class="btn green" data-color="#fff #242526 #3A9943 #2A6F31 #DAF1DC"></button>
+          <button class="btn white" data-color="#fff #242526 #3A9943 #2A6F31 #000"></button>
+        </div>
+      </div>
+
+
+<script>
+
+
+// getting all .btn elements
+let buttons = document.querySelectorAll(".btn");
+
+for (var button of buttons) {
+  button.addEventListener("click", (e)=>{ //adding click event to each button
+    let target = e.target;
+
+   
+
+    // js code to switch colors (also day night mode)
+    let root = document.querySelector(":root");
+    let dataColor = target.getAttribute("data-color"); //getting data-color values of clicked button
+    let color = dataColor.split(" "); //splitting each color from space and make them array
+
+    //passing particular value to a particular root variable
+    root.style.setProperty("--white", color[0]);
+    root.style.setProperty("--black", color[1]);
+    root.style.setProperty("--nav-main", color[2]);
+    root.style.setProperty("--switchers-main", color[3]);
+    root.style.setProperty("--light-bg", color[4]);
+
+    let iconName = target.className.split(" ")[2]; //getting the class name of icon
+
+    
+  });
+}    
+</script>
+</body>
+</html>

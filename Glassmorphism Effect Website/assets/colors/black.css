@@ -1,0 +1,57 @@
+body
+{
+  background:url("../img/blackbg.jpg");
+  color: #fff;
+}
+.circles li {
+  background: rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.circles li:nth-child(1)
+{
+  background: linear-gradient(to right, rgb(0, 198, 255), rgb(0, 114, 255));
+}
+.circles li:nth-child(2)
+{
+  background: linear-gradient(315deg, #03a9f4,#ff0058);
+}
+.circles li:nth-child(3)
+{
+  background: linear-gradient(315deg, #ffbc00,#ff0058);
+  
+}
+.circles li:nth-child(4)
+{
+  background: linear-gradient(to bottom,rgb(255 84 84),rgb(246 66 66));
+}
+
+.circles li:nth-child(5)
+{
+  background: linear-gradient(to right, rgb(71, 118, 230), rgb(142, 84, 233));
+}
+.circles li:nth-child(6)
+{
+  background: linear-gradient(to right, rgb(170, 7, 107), rgb(97, 4, 95));
+}
+.circles li:nth-child(7)
+{
+  background: linear-gradient(315deg, #4dff03,#00d0ff);
+}
+.circles li:nth-child(8)
+{
+  background: linear-gradient(to right, rgb(253, 200, 48), rgb(243, 115, 53));
+}
+
+.circles li:nth-child(9)
+{
+  background: linear-gradient(to right, rgb(3, 0, 30), rgb(115, 3, 192), rgb(236, 56, 188), rgb(253, 239, 249));
+}
+.circles li:nth-child(10)
+{
+  background: linear-gradient(to right, rgb(218, 34, 255), rgb(151, 51, 238));
+}
+.circles li:nth-child(11)
+{
+  background: linear-gradient(to right, rgb(64, 224, 208), rgb(255, 140, 0), rgb(255, 0, 128));
+}
